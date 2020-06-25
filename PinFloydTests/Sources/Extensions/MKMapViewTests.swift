@@ -14,7 +14,7 @@ class MKMapViewTests: XCTestCase {
   func testZoomLevel() {
     // Zoom in
     let coordinate = CLLocationCoordinate2D(latitude: 59.932646, longitude: 10.756316)
-    let region = MKCoordinateRegionMakeWithDistance(coordinate, 500, 500)
+    let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
     mapView.setRegion(region, animated: false)
 
     XCTAssertEqual(mapView.zoomLevel, 16)
@@ -35,19 +35,19 @@ class MKMapViewTests: XCTestCase {
     let coordinate = CLLocationCoordinate2D(latitude: 59.932646, longitude: 10.756316)
 
     // 13...15
-    mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000), animated: false)
+    mapView.setRegion(MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000), animated: false)
     XCTAssertEqual(mapView.tileSize, 64)
 
     // 16...18:
-    mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 500, 500), animated: false)
+    mapView.setRegion(MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500), animated: false)
     XCTAssertEqual(mapView.tileSize, 32)
 
     // > 18
-    mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 10, 10), animated: false)
+    mapView.setRegion(MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 10, longitudinalMeters: 10), animated: false)
     XCTAssertEqual(mapView.tileSize, 16)
 
     // < 13
-    mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000), animated: false)
+    mapView.setRegion(MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000), animated: false)
     XCTAssertEqual(mapView.tileSize, 88)
   }
 

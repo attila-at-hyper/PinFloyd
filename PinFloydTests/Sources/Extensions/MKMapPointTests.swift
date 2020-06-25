@@ -13,7 +13,7 @@ class MKMapPointTests: XCTestCase {
 
   func testCoordinate() {
     let coordinate = mapPoint.coordinate
-    let expectedCoordinate = MKCoordinateForMapPoint(mapPoint)
+    let expectedCoordinate = mapPoint.coordinate
 
     XCTAssertEqual(coordinate.latitude, expectedCoordinate.latitude)
     XCTAssertEqual(coordinate.longitude, expectedCoordinate.longitude)

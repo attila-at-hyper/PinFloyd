@@ -13,11 +13,11 @@ final class ClusteringManagerTests: XCTestCase {
     mapView = MKMapView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
     annotations = [
       // Berlin Cathedral, Berlin, Germany
-      Annotation(mapPoint: MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: 52.518898, longitude: 13.401797))),
+      Annotation(mapPoint: MKMapPoint.init(CLLocationCoordinate2D(latitude: 52.518898, longitude: 13.401797))),
       // Berlin Central and Regional Library, Berlin, Germany
-      Annotation(mapPoint: MKMapPointForCoordinate(CLLocationCoordinate2D(latitude:52.496517, longitude:  13.392376))),
+      Annotation(mapPoint: MKMapPoint.init(CLLocationCoordinate2D(latitude:52.496517, longitude:  13.392376))),
       // Berlin State Library, Berlin, Germany
-      Annotation(mapPoint: MKMapPointForCoordinate(CLLocationCoordinate2D(latitude:52.507675, longitude:  13.370528)))
+      Annotation(mapPoint: MKMapPoint.init(CLLocationCoordinate2D(latitude:52.507675, longitude:  13.370528)))
     ]
   }
 
@@ -29,7 +29,7 @@ final class ClusteringManagerTests: XCTestCase {
   func testRenderAnnotationsWithZoomLevel16() {
     let expectation = self.expectation(description: "Render annotations")
     let coordinate = annotations[0].coordinate
-    let region = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
+    let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
     mapView.setRegion(region, animated: false)
     XCTAssertEqual(mapView.zoomLevel, 12)
 
@@ -46,7 +46,7 @@ final class ClusteringManagerTests: XCTestCase {
   func testRenderAnnotationsWithZoomLevel21() {
     let expectation = self.expectation(description: "Render annotations")
     let coordinate = annotations[0].coordinate
-    let region = MKCoordinateRegionMakeWithDistance(coordinate, 5000, 5000)
+    let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
     mapView.setRegion(region, animated: false)
     XCTAssertEqual(mapView.zoomLevel, 13)
 

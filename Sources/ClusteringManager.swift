@@ -7,7 +7,7 @@ public final class ClusteringManager {
 
   /// Return false for those annotations you don't want to be clustered
   public var filterAnnotations: (MKAnnotation) -> Bool = { _ in return true }
-  private let rootNode: QuadTreeNode = QuadTreeNode(rect: MKMapRectWorld, capacity: 8)
+  private let rootNode: QuadTreeNode = QuadTreeNode(rect: MKMapRect.world, capacity: 8)
 
   /// These annotations are not being clustered
   /// They are rendered as is

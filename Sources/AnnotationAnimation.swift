@@ -44,7 +44,7 @@ final class BounceAnnotationAnimator: AnnotationAnimator {
     animation.duration = 0.5
 
     for _ in 0..<4 {
-      timingFunctions.append(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+      timingFunctions.append(CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut))
     }
 
     animation.timingFunctions = timingFunctions

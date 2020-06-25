@@ -14,7 +14,7 @@ class MKAnnotationTests: XCTestCase {
 
   func testMapPoint() {
     let mapPoint = annotation.mapPoint
-    let expectedMapPoint = MKMapPointForCoordinate(annotation.coordinate)
+    let expectedMapPoint = MKMapPoint.init(annotation.coordinate)
 
     XCTAssertEqual(mapPoint.x, expectedMapPoint.x)
     XCTAssertEqual(mapPoint.y, expectedMapPoint.y)

@@ -1,14 +1,5 @@
 import MapKit
 
-// MARK: - MKMapPoint
-
-extension MKMapPoint {
-
-  var coordinate: CLLocationCoordinate2D {
-    return MKCoordinateForMapPoint(self)
-  }
-}
-
 // MARK: - MKMapSize
 
 extension MKMapSize {
@@ -24,22 +15,6 @@ extension MKMapSize {
 // MARK: - MKMapRect
 
 extension MKMapRect {
-
-  var minX: Double {
-    return origin.x
-  }
-
-  var maxX: Double {
-    return origin.x + size.width
-  }
-
-  var minY: Double {
-    return origin.y
-  }
-
-  var maxY: Double {
-    return origin.y + size.height
-  }
 
   var northWestRect: MKMapRect {
     return MKMapRect(origin: origin, size: size.halfSize)
@@ -98,7 +73,7 @@ extension MKMapRect {
 extension MKAnnotation {
 
   var mapPoint: MKMapPoint {
-    return MKMapPointForCoordinate(coordinate)
+    return MKMapPoint.init(coordinate)
   }
 }
 
